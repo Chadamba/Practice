@@ -2,10 +2,12 @@
 {
     private static void Main(string[] args)
     {
-        Case1();
+        /*Case1();
         Case2();
         Case3();
         Case4();
+        Case5();*/
+        FindMax();
     }
 
     static void Case1()
@@ -70,7 +72,37 @@
         }
         while (!check);
         return number;
-    } 
+    }
+
+    static void Case5()
+    {
+        Console.WriteLine("Простой измененый калькулятор расхода топлива");
+        Console.Write("Введите расстояние (км): ");
+        double dist = GetDouble("");
+        Console.Write("Потраченое топливо(л): ");
+        double vol = GetDouble("");
+        if (dist > 0 && vol >0)
+        {
+            double cons = 100 * vol / dist;
+            Console.WriteLine($"Автомобиль прошел {dist}км потратил {vol} литров топлива Средний расход - {cons} л/100км");
+        }
+        else
+            Console.WriteLine("Расстояние должно быть больше 0!");
+        Console.ReadLine();
+
+    }
+
+    static void FindMax()
+    {
+        int max = 0;
+        Console.Write("Введите три целых числа: ");
+        string[] arr = Console.ReadLine().Split();
+        int a = int.Parse(arr[0]);
+        int b = int.Parse(arr[0]);
+        int c = int.Parse(arr[0]);
+        if (a >= b && a >= c) 
+            max = a;
+    }
 }
 
 
