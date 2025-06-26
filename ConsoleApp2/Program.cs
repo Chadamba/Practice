@@ -8,7 +8,9 @@
         Case4();
         Case5();
         FindMax();
-        FindRootsQuadraticEqual();*/
+        FindRootsQuadraticEqual();
+        LeapYear();*/
+
     }
 
     static void Case1()
@@ -130,7 +132,7 @@
         else if (discriminant == 0)
         {
             double x = -b / (2 * a);
-            Console.WriteLine($"Первый корень = {x}");
+            Console.WriteLine($"корень = {x}");
 
         }
         else
@@ -140,14 +142,48 @@
             Console.WriteLine("Корни являются комплексными и разнимы");
             Console.WriteLine($"x1 = {realPart} + {imaginaryPart}i");
             Console.WriteLine($"x2 = {realPart} - {imaginaryPart}i");
-
-
         }
 
 
     }
+    static void LeapYear()
+    {
+        Console.WriteLine("Введите год: ");
+        int year = Getint(nameof(year));
+        string output;
+        if (year % 4 == 0)
+        {
+            if (year % 100 == 0)
+            {
+                if (year % 400 == 0)
+                    output = "Високосный год";
+                else
+                    output = "Невисокосный год";
+            }
+            else
+                output = "Високосный год";
+        }
+        else
+            output = "Невисокосный год";
+        Console.WriteLine($"Год {year} - {output}");
+        Console.ReadLine();
+    }
 
+    static int Getint(string name)
+    {
+        bool check;
+        int number;
+        do
+        {
+            check = int.TryParse(Console.ReadLine(), out number);
+
+            if (!check) Console.WriteLine("Вы ввели неправильное значение. Введите значение " + name + ".");
+        }
+        while (!check);
+        return number;
+    }
 }
+
 
 
 
