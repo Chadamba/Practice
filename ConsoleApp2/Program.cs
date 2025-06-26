@@ -6,8 +6,9 @@
         Case2();
         Case3();
         Case4();
-        Case5();*/
+        Case5();
         FindMax();
+        FindRootsQuadraticEqual();*/
     }
 
     static void Case1()
@@ -81,7 +82,7 @@
         double dist = GetDouble("");
         Console.Write("Потраченое топливо(л): ");
         double vol = GetDouble("");
-        if (dist > 0 && vol >0)
+        if (dist > 0 && vol > 0)
         {
             double cons = 100 * vol / dist;
             Console.WriteLine($"Автомобиль прошел {dist}км потратил {vol} литров топлива Средний расход - {cons} л/100км");
@@ -98,11 +99,55 @@
         Console.Write("Введите три целых числа: ");
         string[] arr = Console.ReadLine().Split();
         int a = int.Parse(arr[0]);
-        int b = int.Parse(arr[0]);
-        int c = int.Parse(arr[0]);
-        if (a >= b && a >= c) 
+        int b = int.Parse(arr[1]);
+        int c = int.Parse(arr[2]);
+        if (a >= b && a >= c)
             max = a;
+        if (b >= a && b >= c)
+            max = b;
+        if (c >= b && c >= a)
+            max = c;
+        Console.WriteLine($"Максимум: {max}");
+
     }
+    static void FindRootsQuadraticEqual()
+    {
+        Console.Write("Введите коэффициенты a: ");
+        double a = GetDouble(nameof(a));
+        Console.Write("Введите коэффициенты b: ");
+        double b = GetDouble(nameof(b));
+        Console.Write("Введите коэффициенты c: ");
+        double c = GetDouble(nameof(c));
+        double discriminant = b * b - 4 * a * c;
+        Console.WriteLine($"Дискриминант = {discriminant}");
+        if (discriminant > 0)
+        {
+            double x1 = (-b + Math.Sqrt(discriminant)) / (2 * a);
+            double x2 = (-b - Math.Sqrt(discriminant)) / (2 * a);
+            Console.WriteLine($"Первый корень = {x1}");
+            Console.WriteLine($"Второй корень = {x2}");
+        }
+        else if (discriminant == 0)
+        {
+            double x = -b / (2 * a);
+            Console.WriteLine($"Первый корень = {x}");
+
+        }
+        else
+        {
+            double realPart = -b / (2 * a);
+            double imaginaryPart = Math.Sqrt(-discriminant) / (2 * a);
+            Console.WriteLine("Корни являются комплексными и разнимы");
+            Console.WriteLine($"x1 = {realPart} + {imaginaryPart}i");
+            Console.WriteLine($"x2 = {realPart} - {imaginaryPart}i");
+
+
+        }
+
+
+    }
+
 }
+
 
 
