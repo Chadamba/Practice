@@ -9,8 +9,9 @@
         Case5();
         FindMax();
         FindRootsQuadraticEqual();
-        LeapYear();*/
-
+        LeapYear();
+        FindSumOfNaturalNumbersUsingFor();
+        CalculatingFactorial();*/
     }
 
     static void Case1()
@@ -182,6 +183,31 @@
         while (!check);
         return number;
     }
+    static void FindSumOfNaturalNumbersUsingFor()
+    {
+        int n, sum = 0;
+        Console.WriteLine("Введите положительное цело число: ");
+        n = Getint(nameof(n));
+        for (int i = 1; i <= n; i++)
+        {
+            sum += i;
+        }
+        Console.WriteLine($"Сумма = {sum}");
+    }
+    static void CalculateFactorial()
+    {
+        int n = 0;
+        int factorial = 1;
+
+        Console.WriteLine("Введите положительное цело число: ");
+        n = Getint(nameof(n));
+        for (int i = 1; i <= n; i++)
+        {
+            factorial *= i;
+        }
+        Console.WriteLine($"Факториал = {factorial}");
+    }
+    
 }
 
 
