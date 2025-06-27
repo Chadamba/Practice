@@ -1,61 +1,132 @@
-﻿using System.Reflection.Metadata.Ecma335;
+﻿using System;
+using System.Reflection.Metadata.Ecma335;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-        /*Case1();
-        Case2();
-        Case3();
-        Case4();
-        Case5();
-        FindMax();
-        FindRootsQuadraticEqual();
-        LeapYear();
-        FindSumOfNaturalNumbersUsingFor();
-        CalculatingFactorial();
-        OutputOddNumbers();
-        NOD();
-        NOK();*/
+
+        while (true)
+        {
+            Console.WriteLine("Меню" +
+            "\nВыберите пункт:" +
+            "\n 1 - Вывод на консоль " +
+            "\n 2 - Простой калькулятор расхода топлива" +
+            "\n 3 - Вычислить частное и остаток" +
+            "\n 4 - Меняем два числа местами" +
+            "\n 5 - Простой измененый калькулятор расхода топлива" +
+            "\n 6 - Наибольшее число" +
+            "\n 7 - Формула квадратного уравнения" +
+            "\n 8 - Высокосный год" +
+            "\n 9 - Положительное целое число" +
+            "\n 10 - Калькулятор факториала" +
+            "\n 11 - Вывод только не четные числа" +
+            "\n 12 - Наименьший Общий Делитель" +
+            "\n 13 - Наибольшее общее кратно");
+            int userСhoice = Getint(nameof(userСhoice));
+            if (userСhoice == 1)
+            {
+                ConsoleOutput();
+            }
+            else if (userСhoice == 2)
+            {
+                SimpleFuelConsumpteCalculator();
+            }
+            else if (userСhoice == 3)
+            {
+                CalculateQuotientAndRemainder();
+            }
+            else if (userСhoice == 4)
+            {
+                SwappNumbers();
+            }
+            else if (userСhoice == 5)
+            {
+                SimpleModifiedFuelConsumpCalculator();
+            }
+            else if (userСhoice == 6)
+            {
+                FindMax();
+            }
+            else if (userСhoice == 7)
+            {
+                FindRootsQuadraticEqual();
+            }
+            else if (userСhoice == 8)
+            {
+                LeapYear();
+            }
+            else if (userСhoice == 9)
+            {
+                FindSumOfNaturalNumbersUsingFor();
+            }
+            else if (userСhoice == 10)
+            {
+                CalculateFactorial();
+            }
+            else if (userСhoice == 11)
+            {
+                OutputOddNumbers();
+            }
+            else if (userСhoice == 12)
+            {
+                NOD();
+            }
+            else if (userСhoice == 13)
+            {
+                NOK();
+            }
+
+            else if (userСhoice >= 14)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Несуществующий пункт");
+            }
+            Console.ResetColor();
+            Console.WriteLine();
+        }
+
+
     }
 
-    static void Case1()
+
+    static void ConsoleOutput()
     {
         Console.Write("Введите имя: ");
         string? name = Console.ReadLine();
         Console.Write("Введите возраст: ");
-        int age = Convert.ToInt32(Console.ReadLine());
+        int age = Getint(nameof(age));
         Console.Write("Введите рост: ");
-        double height = Convert.ToDouble(Console.ReadLine());
+        double height = GetDouble(nameof(height));
         Console.WriteLine();
         Console.WriteLine($"Имя:{name} Возраст:{age} Рост:{height}m");
         Console.WriteLine();
     }
 
-    static void Case2()
+    static void SimpleFuelConsumpteCalculator()
     {
         Console.WriteLine("Простой калькулятор расхода топлива");
         Console.Write("Введите расстояние (км): ");
-        double dist = Convert.ToDouble(Console.ReadLine());
+        double dist = GetDouble(nameof(dist));
         Console.Write("Потраченое топливо(л): ");
-        double vol = Convert.ToDouble(Console.ReadLine());
+        double vol = GetDouble(nameof(vol));
         double cons = 100 * vol / dist;
         string output = string.Format("Автомобиль прошел {0:F2}км потратил {1:F2} литров топлива Средний расход - {2:F3} л/100км", dist, vol, cons);
         Console.WriteLine(output);
     }
 
-    static void Case3()
+    static void CalculateQuotientAndRemainder()
     {
         Console.WriteLine("Введите делимое: ");
-        double divident = Convert.ToDouble(Console.ReadLine());
+        double divident = GetDouble(nameof(divident));
         Console.Write("Введите делитель: ");
-        double divisor = Convert.ToDouble(Console.ReadLine());
+        double divisor = GetDouble(nameof(divisor));
         double quotient = divident / divisor;
         double remainder = divident % divisor;
         Console.WriteLine($"Частное = {quotient} Остаток = {remainder}");
     }
 
-    static void Case4()
+    static void SwappNumbers()
     {
         Console.Write("Введите a: ");
         double a = GetDouble("a");
@@ -83,7 +154,7 @@ internal class Program
         return number;
     }
 
-    static void Case5()
+    static void SimpleModifiedFuelConsumpCalculator()
     {
         Console.WriteLine("Простой измененый калькулятор расхода топлива");
         Console.Write("Введите расстояние (км): ");
@@ -97,7 +168,7 @@ internal class Program
         }
         else
             Console.WriteLine("Расстояние должно быть больше 0!");
-        Console.ReadLine();
+       
 
     }
 
@@ -172,7 +243,7 @@ internal class Program
         else
             output = "Невисокосный год";
         Console.WriteLine($"Год {year} - {output}");
-        Console.ReadLine();
+        
     }
 
     static int Getint(string name)
@@ -252,7 +323,6 @@ internal class Program
         int first = Getint(nameof(first));
         Console.Write("Write second number = ");
         int second = Getint(nameof(second));
-
         int big = second;
         int small = first;
         int max = first * second;
@@ -264,7 +334,7 @@ internal class Program
         }
         for (int i = max; i >= big; i--)
         {
-            if ( i % big  == 0 && i % small == 0)
+            if (i % big == 0 && i % small == 0)
             {
                 nok = i;
 
@@ -272,6 +342,7 @@ internal class Program
         }
         Console.WriteLine($"NOK = {nok}");
     }
+
 
 }
 
