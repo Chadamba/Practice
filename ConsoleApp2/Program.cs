@@ -15,8 +15,8 @@ internal class Program
         FindSumOfNaturalNumbersUsingFor();
         CalculatingFactorial();
         OutputOddNumbers();
-        NOD();*/
-
+        NOD();
+        NOK();*/
     }
 
     static void Case1()
@@ -245,6 +245,32 @@ internal class Program
             }
         }
         Console.WriteLine($"NOD = {nod}");
+    }
+    static void NOK()
+    {
+        Console.Write("Write first number = ");
+        int first = Getint(nameof(first));
+        Console.Write("Write second number = ");
+        int second = Getint(nameof(second));
+
+        int big = second;
+        int small = first;
+        int max = first * second;
+        int nok = 0;
+        if (first > second)
+        {
+            big = first;
+            small = second;
+        }
+        for (int i = max; i >= big; i--)
+        {
+            if ( i % big  == 0 && i % small == 0)
+            {
+                nok = i;
+
+            }
+        }
+        Console.WriteLine($"NOK = {nok}");
     }
 
 }
