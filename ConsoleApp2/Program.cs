@@ -1,4 +1,6 @@
-﻿internal class Program
+﻿using System.Reflection.Metadata.Ecma335;
+
+internal class Program
 {
     private static void Main(string[] args)
     {
@@ -11,7 +13,9 @@
         FindRootsQuadraticEqual();
         LeapYear();
         FindSumOfNaturalNumbersUsingFor();
-        CalculatingFactorial();*/
+        CalculatingFactorial();
+        OutputOddNumbers();*/
+
     }
 
     static void Case1()
@@ -207,7 +211,16 @@
         }
         Console.WriteLine($"Факториал = {factorial}");
     }
-    
+    static void OutputOddNumbers()
+    {
+        for (int i = 1; i <= 100; i += 2)
+        {
+            Console.WriteLine($"{i}");
+
+        }
+
+    }
+
 }
 
 
