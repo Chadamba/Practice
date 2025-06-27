@@ -14,7 +14,8 @@ internal class Program
         LeapYear();
         FindSumOfNaturalNumbersUsingFor();
         CalculatingFactorial();
-        OutputOddNumbers();*/
+        OutputOddNumbers();
+        NOD();*/
 
     }
 
@@ -219,6 +220,31 @@ internal class Program
 
         }
 
+    }
+    static void NOD()
+    {
+        Console.Write("Write first number = ");
+        int first = Getint(nameof(first));
+        Console.Write("Write second number = ");
+        int second = Getint(nameof(second));
+
+        int big = second;
+        int small = first;
+        int nod = 0;
+        if (first > second)
+        {
+            big = first;
+            small = second;
+        }
+        for (int i = 1; i < small; i++)
+        {
+            if (big % i == 0 && small % i == 0)
+            {
+                nod = i;
+
+            }
+        }
+        Console.WriteLine($"NOD = {nod}");
     }
 
 }
