@@ -22,7 +22,8 @@ internal class Program
             "\n 10 - Калькулятор факториала" +
             "\n 11 - Вывод только не четные числа" +
             "\n 12 - Наименьший Общий Делитель" +
-            "\n 13 - Наибольшее общее кратно");
+            "\n 13 - Наибольшее общее кратно" +
+            "\n 14 - Вычисляем обратное число");
             int userСhoice = Getint(nameof(userСhoice));
             if (userСhoice == 1)
             {
@@ -76,8 +77,12 @@ internal class Program
             {
                 NOK();
             }
+            else if (userСhoice == 14)
+            {
+                CalculatingInverseNumber();
+            }
 
-            else if (userСhoice >= 14)
+            else if (userСhoice >= 15)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Несуществующий пункт");
@@ -168,7 +173,7 @@ internal class Program
         }
         else
             Console.WriteLine("Расстояние должно быть больше 0!");
-       
+
 
     }
 
@@ -243,7 +248,7 @@ internal class Program
         else
             output = "Невисокосный год";
         Console.WriteLine($"Год {year} - {output}");
-        
+
     }
 
     static int Getint(string name)
@@ -342,7 +347,22 @@ internal class Program
         }
         Console.WriteLine($"NOK = {nok}");
     }
+    static void CalculatingInverseNumber()
+    {
+        int a, reversedNumber = 0, remainder;
+        Console.WriteLine("Введите целое число: ");
+        a = Getint(nameof(a));
+        while (a != 0)
+        {
+            remainder = a % 10;
+            reversedNumber = reversedNumber * 10 + remainder;
+            a /= 10;
+        }
+        Console.WriteLine($"Обратное число = {reversedNumber}");
+        
 
+
+    }
 
 }
 
