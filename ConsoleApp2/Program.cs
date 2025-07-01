@@ -8,6 +8,7 @@ internal class Program
 
         while (true)
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Меню" +
             "\nВыберите пункт:" +
             "\n 1 - Вывод на консоль " +
@@ -23,7 +24,8 @@ internal class Program
             "\n 11 - Вывод только не четные числа" +
             "\n 12 - Наименьший Общий Делитель" +
             "\n 13 - Наибольшее общее кратно" +
-            "\n 14 - Вычисляем обратное число");
+            "\n 14 - Вычисляем обратное число" +
+            "\n 15 - Калькулятор");
             int userСhoice = Getint(nameof(userСhoice));
             if (userСhoice == 1)
             {
@@ -81,8 +83,16 @@ internal class Program
             {
                 CalculatingInverseNumber();
             }
+            else if (userСhoice == 15)
+            {
+                Сalculator();
+            }
+            else if (userСhoice == 0)
+            {
+                Сalculator();
+            }
 
-            else if (userСhoice >= 15)
+            else if (userСhoice >= 16)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Несуществующий пункт");
@@ -228,6 +238,7 @@ internal class Program
 
 
     }
+
     static void LeapYear()
     {
         Console.WriteLine("Введите год: ");
@@ -264,6 +275,7 @@ internal class Program
         while (!check);
         return number;
     }
+
     static void FindSumOfNaturalNumbersUsingFor()
     {
         int n, sum = 0;
@@ -275,6 +287,7 @@ internal class Program
         }
         Console.WriteLine($"Сумма = {sum}");
     }
+
     static void CalculateFactorial()
     {
         int n = 0;
@@ -297,6 +310,7 @@ internal class Program
         }
 
     }
+
     static void NOD()
     {
         Console.Write("Write first number = ");
@@ -322,6 +336,7 @@ internal class Program
         }
         Console.WriteLine($"NOD = {nod}");
     }
+
     static void NOK()
     {
         Console.Write("Write first number = ");
@@ -347,6 +362,7 @@ internal class Program
         }
         Console.WriteLine($"NOK = {nok}");
     }
+
     static void CalculatingInverseNumber()
     {
         int a, reversedNumber = 0, remainder;
@@ -359,11 +375,47 @@ internal class Program
             a /= 10;
         }
         Console.WriteLine($"Обратное число = {reversedNumber}");
-        
+    }
+
+    static void Сalculator()
+    {
+        string op;
+        double num1;
+        double num2;
+
+        Console.WriteLine("Введите оператор: ");
+        op = Console.ReadLine();
+
+        Console.WriteLine("Введите два числа: ");
+        string[] arr = Console.ReadLine().Split();
+        num1 = Convert.ToDouble(arr[0]);
+        num2 = Convert.ToDouble(arr[1]);
+        switch (op)
+        {
+            case "+":
+                Console.WriteLine($"{num1 + num2}");
+                break;
+            case "-":
+                Console.WriteLine($"{num1 - num2}");
+                break;
+            case "*":
+                Console.WriteLine($"{num1 * num2}");
+                break;
+            case "/":
+                if (num1 != 0)
+                    Console.WriteLine($"{num1 / num2}");
+                else
+                    Console.WriteLine("Деление на ноль!");
+                break;
+            default:
+                Console.WriteLine("Неправильный оператор");
+                break;
+
+
+        }
 
 
     }
-
 }
 
 
