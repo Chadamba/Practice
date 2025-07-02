@@ -57,7 +57,7 @@ public class MainClass
         }
         else if (userСhoice == 8)
         {
-            ;
+            PiesForWholeCompany();
         }
         else if (userСhoice == 9)
         {
@@ -159,6 +159,19 @@ public class MainClass
         int sum = first + second + third + fourth;
         int composition = sum * 3;
         Console.WriteLine($"{composition}");
+    }
+    //Пирожки на всю компанию!
+    //Пирожок в столовой стоит a рублей и b копеек.Определи, сколько рублей и копеек нужно заплатить за n пирожков.
+    static void PiesForWholeCompany()
+    {
+        int rub = Getint(nameof(rub));
+        int kop = Getint(nameof(kop));
+        int pirojok = Getint(nameof(pirojok));
+        int kop2 = rub * 100;
+        int composition = (kop2 + kop) * pirojok;
+        int o = composition / 100;
+        int on = composition % 100;
+        Console.WriteLine($"{o} {on}");
     }
 }
 
