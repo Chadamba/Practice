@@ -49,9 +49,17 @@ public class MainClass
         }
         else if (userСhoice == 6)
         {
-            ;
+            ThreeConsecutiveNumbers();
         }
         else if (userСhoice == 7)
+        {
+            TotalCost();
+        }
+        else if (userСhoice == 8)
+        {
+            ;
+        }
+        else if (userСhoice == 9)
         {
             ;
         }
@@ -127,6 +135,30 @@ public class MainClass
         int sum = k % n;
         Console.WriteLine($"{sum}");
     }
-
+    //Три последовательных числа
+    //Напиши программу, которая выводит на экран три последовательно идущих целых числа, каждое с новой строки.Первое число вводит пользователь, два следующих вычисляются программой.
+    static void ThreeConsecutiveNumbers()
+    {
+        int n = Getint(nameof(n));
+        int sum = n;
+        int sum1 = n + 1;
+        int sum2 = n + 2;
+        Console.WriteLine($"{sum}");
+        Console.WriteLine($"{sum1}");
+        Console.WriteLine($"{sum2}");
+    }
+    //Купил себе, другу и… бабушке!
+    //Напиши программу, которая вычисляет общую стоимость трех комплектов телефона.
+    //Один комплект включает: само устройство, чехол, зарядку и наушники.
+    static void TotalCost()
+    {
+        int first = Getint(nameof(first));
+        int second = Getint(nameof(second));
+        int third = Getint(nameof(third));
+        int fourth = Getint(nameof(fourth));
+        int sum = first + second + third + fourth;
+        int composition = sum * 3;
+        Console.WriteLine($"{composition}");
+    }
 }
 
