@@ -7,6 +7,7 @@ public class MainClass
 {
     static void Main()
     {
+        Console.ForegroundColor = ConsoleColor.Yellow;
         Console.WriteLine("МЕНЮ" +
             "\n" +
             "\n Выберите пункт" +
@@ -14,18 +15,12 @@ public class MainClass
             "\n 1 - Квадрат числа" +
             "\n 2 - Расстояние в километрах" +
             "\n 3 - Произведение трёх чисел" +
-            "\n 4 - поделить яблоки и не поссориться - 1" +
-            "\n 5 - " +
-            "\n 6 - " +
-            "\n 7 - " +
-            "\n 8 - " +
-            "\n 9 - " +
-            "\n 10 - " +
-            "\n 11 - " +
-            "\n 12 - " +
-            "\n 13 - " +
-            "\n 14 - " +
-            "");
+            "\n 4 - Как поделить яблоки и не поссориться - 1" +
+            "\n 5 - Как поделить яблоки и не поссориться - 2" +
+            "\n 6 - Три последовательных числа" +
+            "\n 7 - Купил себе, другу и… бабушке!" +
+            "\n 8 - Пирожки на всю компанию!" +
+            "\n 9 - Пересчет временного интервала");
         int userСhoice = Getint(nameof(userСhoice));
         if (userСhoice == 1)
         {
@@ -61,22 +56,17 @@ public class MainClass
         }
         else if (userСhoice == 9)
         {
-            ;
+            RecalculatingTimeInterval();
         }
-    }
-    static double GetDouble(string name)
-    {
-        bool check;
-        double number;
-        do
+        else if (userСhoice >= 10)
         {
-            check = double.TryParse(Console.ReadLine(), out number);
-
-            if (!check) Console.WriteLine("Вы ввели неправильное значение. Введите значение " + name + ".");
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Несуществующий пункт");
         }
-        while (!check);
-        return number;
+        Console.ResetColor();
+        Console.WriteLine();
     }
+    
     static int Getint(string name)
     {
         bool check;
@@ -172,6 +162,15 @@ public class MainClass
         int o = composition / 100;
         int on = composition % 100;
         Console.WriteLine($"{o} {on}");
+    }
+    //Пересчет временного интервала
+    //Напиши программу для пересчёта величины временного интервала, заданного в минутах, в величину, выраженную в часах и минутах.
+    static void RecalculatingTimeInterval()
+    {
+        int minut = Getint(nameof(minut));
+        int hour = minut / 60;
+        int minut2 = minut % 60;
+        Console.WriteLine($"{minut} мин - это {hour} час {minut2} минут.");
     }
 }
 
