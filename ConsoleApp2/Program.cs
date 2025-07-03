@@ -1,11 +1,7 @@
-﻿using System;
-using System.Reflection.Metadata.Ecma335;
-
-internal class Program
+﻿internal class Program
 {
     private static void Main(string[] args)
     {
-
         while (true)
         {
             Console.ForegroundColor = ConsoleColor.Green;
@@ -104,8 +100,7 @@ internal class Program
 
     }
 
-
-    static void ConsoleOutput()
+    private static void ConsoleOutput()
     {
         Console.Write("Введите имя: ");
         string? name = Console.ReadLine();
@@ -118,7 +113,7 @@ internal class Program
         Console.WriteLine();
     }
 
-    static void SimpleFuelConsumpteCalculator()
+    private static void SimpleFuelConsumpteCalculator()
     {
         Console.WriteLine("Простой калькулятор расхода топлива");
         Console.Write("Введите расстояние (км): ");
@@ -130,7 +125,7 @@ internal class Program
         Console.WriteLine(output);
     }
 
-    static void CalculateQuotientAndRemainder()
+    private static void CalculateQuotientAndRemainder()
     {
         Console.WriteLine("Введите делимое: ");
         double divident = GetDouble(nameof(divident));
@@ -141,7 +136,7 @@ internal class Program
         Console.WriteLine($"Частное = {quotient} Остаток = {remainder}");
     }
 
-    static void SwappNumbers()
+    private static void SwappNumbers()
     {
         Console.Write("Введите a: ");
         double a = GetDouble("a");
@@ -155,7 +150,7 @@ internal class Program
         Console.WriteLine($"После замены a = {a} b = {b}");
     }
 
-    static double GetDouble(string name)
+    private static double GetDouble(string name)
     {
         bool check;
         double number;
@@ -169,7 +164,7 @@ internal class Program
         return number;
     }
 
-    static void SimpleModifiedFuelConsumpCalculator()
+    private static void SimpleModifiedFuelConsumpCalculator()
     {
         Console.WriteLine("Простой измененый калькулятор расхода топлива");
         Console.Write("Введите расстояние (км): ");
@@ -187,7 +182,7 @@ internal class Program
 
     }
 
-    static void FindMax()
+    private static void FindMax()
     {
         int max = 0;
         Console.Write("Введите три целых числа: ");
@@ -204,7 +199,8 @@ internal class Program
         Console.WriteLine($"Максимум: {max}");
 
     }
-    static void FindRootsQuadraticEqual()
+
+    private static void FindRootsQuadraticEqual()
     {
         Console.Write("Введите коэффициенты a: ");
         double a = GetDouble(nameof(a));
@@ -239,7 +235,7 @@ internal class Program
 
     }
 
-    static void LeapYear()
+    private static void LeapYear()
     {
         Console.WriteLine("Введите год: ");
         int year = Getint(nameof(year));
@@ -262,7 +258,7 @@ internal class Program
 
     }
 
-    static int Getint(string name)
+    private static int Getint(string name)
     {
         bool check;
         int number;
@@ -276,7 +272,7 @@ internal class Program
         return number;
     }
 
-    static void FindSumOfNaturalNumbersUsingFor()
+    private static void FindSumOfNaturalNumbersUsingFor()
     {
         int n, sum = 0;
         Console.WriteLine("Введите положительное цело число: ");
@@ -288,7 +284,7 @@ internal class Program
         Console.WriteLine($"Сумма = {sum}");
     }
 
-    static void CalculateFactorial()
+    private static void CalculateFactorial()
     {
         int n = 0;
         int factorial = 1;
@@ -301,7 +297,8 @@ internal class Program
         }
         Console.WriteLine($"Факториал = {factorial}");
     }
-    static void OutputOddNumbers()
+
+    private static void OutputOddNumbers()
     {
         for (int i = 1; i <= 100; i += 2)
         {
@@ -311,7 +308,7 @@ internal class Program
 
     }
 
-    static void NOD()
+    private static void NOD()
     {
         Console.Write("Write first number = ");
         int first = Getint(nameof(first));
@@ -337,7 +334,7 @@ internal class Program
         Console.WriteLine($"NOD = {nod}");
     }
 
-    static void NOK()
+    private static void NOK()
     {
         Console.Write("Write first number = ");
         int first = Getint(nameof(first));
@@ -363,7 +360,7 @@ internal class Program
         Console.WriteLine($"NOK = {nok}");
     }
 
-    static void CalculatingInverseNumber()
+    private static void CalculatingInverseNumber()
     {
         int a, reversedNumber = 0, remainder;
         Console.WriteLine("Введите целое число: ");
@@ -377,7 +374,7 @@ internal class Program
         Console.WriteLine($"Обратное число = {reversedNumber}");
     }
 
-    static void Сalculator()
+    private static void Сalculator()
     {
         string op;
         double num1;
