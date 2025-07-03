@@ -1,10 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Threading;
-
-public class MainClass
+﻿public class MainClass
 {
     static void Main()
     {
@@ -26,7 +20,7 @@ public class MainClass
             "\n 11 - Найди вторую справа!" +
             "\n 12 - Сумма цифр" +
             "\n 13 - Перевернутое число");
-        int userСhoice = Getint(nameof(userСhoice));
+        int userСhoice = GetInt(nameof(userСhoice));
         if (userСhoice == 1)
         {
             SquareOfNumber();
@@ -88,7 +82,7 @@ public class MainClass
         Console.WriteLine();
     }
 
-    static int Getint(string name)
+    static int GetInt(string name)
     {
         bool check;
         int number;
@@ -101,56 +95,60 @@ public class MainClass
         while (!check);
         return number;
     }
+
     //Квадрат числа
     //Напиши программу, которая вычисляет квадрат целого числа
     static void SquareOfNumber()
     {
-        int number = Getint(nameof(number));
+        int number = GetInt(nameof(number));
         Console.WriteLine($"{number * number}");
-
     }
+
     //Расстояние в километрах
     //Напиши программу, которая определяет полное количество километров по заданному числу метров.
     static void DistanceInKilometers()
     {
-        int number = Getint(nameof(number));
+        int number = GetInt(nameof(number));
         int number2 = number / 1000;
         Console.WriteLine($"{number2}");
     }
+
     //Произведение трёх чисел
     //Напиши программу, которая считывает три целых числа(каждое с новой строки) и выводит их произведение.
     static void ProductOfThreeNumbers()
     {
-        int number = Getint(nameof(number));
-        int number1 = Getint(nameof(number1));
-        int number2 = Getint(nameof(number2));
+        int number = GetInt(nameof(number));
+        int number1 = GetInt(nameof(number1));
+        int number2 = GetInt(nameof(number2));
         int sum = number * number1 * number2;
         Console.WriteLine($"{sum}");
-
     }
+
     //Как поделить яблоки и не поссориться - 1
     //n школьников делят k яблок поровну.Неделящийся остаток остаётся в корзине. Определи, сколько яблок достанется каждому школьнику.
     static void DivideApples()
     {
-        int n = Getint(nameof(n));
-        int k = Getint(nameof(k));
+        int n = GetInt(nameof(n));
+        int k = GetInt(nameof(k));
         int sum = k / n;
         Console.WriteLine($"{sum}");
     }
+
     //Как поделить яблоки и не поссориться - 2
     //n школьников делят k яблок поровну.Неделящийся остаток остаётся в корзине. Определи, сколько яблок останется в корзине.
     static void DivideApples2()
     {
-        int n = Getint(nameof(n));
-        int k = Getint(nameof(k));
+        int n = GetInt(nameof(n));
+        int k = GetInt(nameof(k));
         int sum = k % n;
         Console.WriteLine($"{sum}");
     }
+
     //Три последовательных числа
     //Напиши программу, которая выводит на экран три последовательно идущих целых числа, каждое с новой строки.Первое число вводит пользователь, два следующих вычисляются программой.
     static void ThreeConsecutiveNumbers()
     {
-        int n = Getint(nameof(n));
+        int n = GetInt(nameof(n));
         int sum = n;
         int sum1 = n + 1;
         int sum2 = n + 2;
@@ -158,41 +156,51 @@ public class MainClass
         Console.WriteLine($"{sum1}");
         Console.WriteLine($"{sum2}");
     }
+
     //Купил себе, другу и… бабушке!
     //Напиши программу, которая вычисляет общую стоимость трех комплектов телефона.
     //Один комплект включает: само устройство, чехол, зарядку и наушники.
     static void TotalCost()
     {
-        int first = Getint(nameof(first));
-        int second = Getint(nameof(second));
-        int third = Getint(nameof(third));
-        int fourth = Getint(nameof(fourth));
+        int first = GetInt(nameof(first));
+        int second = GetInt(nameof(second));
+        int third = GetInt(nameof(third));
+        int fourth = GetInt(nameof(fourth));
         int sum = first + second + third + fourth;
         int composition = sum * 3;
         Console.WriteLine($"{composition}");
     }
+
     //Пирожки на всю компанию!
     //Пирожок в столовой стоит a рублей и b копеек.Определи, сколько рублей и копеек нужно заплатить за n пирожков.
     static void PiesForWholeCompany()
     {
-        int rub = Getint(nameof(rub));
-        int kop = Getint(nameof(kop));
-        int pirojok = Getint(nameof(pirojok));
-        int kop2 = rub * 100;
-        int composition = (kop2 + kop) * pirojok;
-        int o = composition / 100;
-        int on = composition % 100;
-        Console.WriteLine($"{o} {on}");
+        int rubles = GetInt(nameof(rubles));
+        int cents = GetInt(nameof(cents));
+        int piesCount = GetInt(nameof(piesCount));
+
+        int rublesToCents = rubles * 100;
+        int costOnePie = rublesToCents + cents;
+        int totalCost = costOnePie * piesCount;
+
+        int totalRubles = totalCost / 100;
+        int totalCents = totalCost % 100;
+
+        Console.WriteLine($"{totalRubles}.{totalCents}");
     }
+
     //Пересчет временного интервала
     //Напиши программу для пересчёта величины временного интервала, заданного в минутах, в величину, выраженную в часах и минутах.
     static void RecalculatingTimeInterval()
     {
-        int minut = Getint(nameof(minut));
-        int hour = minut / 60;
-        int minut2 = minut % 60;
-        Console.WriteLine($"{minut} мин - это {hour} час {minut2} минут.");
+        int totalMinutes = GetInt(nameof(totalMinutes));
+
+        int hours = totalMinutes / 60;
+        int minutes = totalMinutes % 60;
+
+        Console.WriteLine($"{totalMinutes} минут - это {hours} час {minutes} минут.");
     }
+
     /*Цифра на последнем месте
     Дано натуральное число.Выведи его последнюю цифру.
     Формат входных данных:
@@ -201,24 +209,39 @@ public class MainClass
     Одна цифра — последняя цифра числа n*/
     static void NumberIsInLastPlace()
     {
-        int n = Getint(nameof(n));
+        int naturalNumber = GetInt(nameof(naturalNumber));
 
-        int sum = n % 10;
-        Console.WriteLine($"{sum}");
+        if(naturalNumber > 10_000)
+        {
+            Console.WriteLine("Неподходящее число, надо число меньше 10000.");
+            return;
+        }
+
+        int lastSymbol = naturalNumber % 10;
+        Console.WriteLine($"{lastSymbol}");
     }
+
     /*Найди вторую справа!
-    Дано неотрицательное целое число.Найди число десятков — то есть вторую цифру справа.
+    Дано неотрицательное целое число. Найди число десятков — то есть вторую цифру справа.
     Формат входных данных:
     Одно натуральное число n, не превышающее 10000.
     Формат выходных данных:
     Одна цифра — количество десятков в числе  n.*/
     static void FindSecondOneOnRight()
     {
-        int n = Getint(nameof(n));
-        int sum = n / 10;
-        int sum2 = sum % 10;
-        Console.WriteLine($"{sum2}");
+        int number = GetInt(nameof(number));
+
+        if (number > 10_000)
+        {
+            Console.WriteLine("Неподходящее число, надо число меньше 10000.");
+            return;
+        }
+
+        int numberWithoutLastSymbol = number / 10;
+        int secondRightSymbol = numberWithoutLastSymbol % 10;
+        Console.WriteLine($"{secondRightSymbol}");
     }
+
     /* Сумма цифр
  Дано трехзначное число.Найди сумму его цифр.
  Формат входных данных:
@@ -227,7 +250,14 @@ public class MainClass
  Одно целое число — сумма цифр введенного числа*/
     static void SumOfDigits()
     {
-        int number = Getint(nameof(number));
+        int number = GetInt(nameof(number));
+
+        if(number >= 100 && number < 1000)
+        {
+            Console.WriteLine("Неподходящее число, надо число меньше 1000 или больше 100.");
+            return;
+        }
+
         int number1 = number % 10;
         int number2 = number % 100;
         int number22 = number2 / 10;
@@ -235,6 +265,7 @@ public class MainClass
         int sum = number1 + number22 + number3;
         Console.WriteLine($"{sum}");
     }
+
     /*Перевернутое число
     Дано трехзначное число. Переверни и выведи это число.
     Формат входных данных:
@@ -243,7 +274,8 @@ public class MainClass
     Перевернутое число.*/
     static void InvertedNumber()
     {
-        int number = Getint(nameof(number));
+        int number = GetInt(nameof(number));
+
         int number1 = number % 10;
         int number2 = number % 100;
         int number22 = number2 / 10;
