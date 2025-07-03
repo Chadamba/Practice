@@ -24,7 +24,8 @@ public class MainClass
             "\n 9 - Пересчет временного интервала" +
             "\n 10 - Цифра на последнем месте" +
             "\n 11 - Найди вторую справа!" +
-            "\n 12 - Сумма цифр");
+            "\n 12 - Сумма цифр" +
+            "\n 13 - Перевернутое число");
         int userСhoice = Getint(nameof(userСhoice));
         if (userСhoice == 1)
         {
@@ -74,7 +75,11 @@ public class MainClass
         {
             SumOfDigits();
         }
-        else if (userСhoice >= 13)
+        else if (userСhoice == 13)
+        {
+            InvertedNumber();
+        }
+        else if (userСhoice >= 14)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Несуществующий пункт");
@@ -229,6 +234,21 @@ public class MainClass
         int number3 = number / 100;
         int sum = number1 + number22 + number3;
         Console.WriteLine($"{sum}");
+    }
+    /*Перевернутое число
+    Дано трехзначное число. Переверни и выведи это число.
+    Формат входных данных:
+    Одно трехзначное число, не оканчивающееся на ноль.
+    Формат выходных данных:
+    Перевернутое число.*/
+    static void InvertedNumber()
+    {
+        int number = Getint(nameof(number));
+        int number1 = number % 10;
+        int number2 = number % 100;
+        int number22 = number2 / 10;
+        int number3 = number / 100;
+        Console.WriteLine($"{number1}" + $"{number22}" + $"{number3}");
     }
 }
 
