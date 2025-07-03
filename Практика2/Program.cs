@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading;
 
@@ -20,7 +21,8 @@ public class MainClass
             "\n 6 - Три последовательных числа" +
             "\n 7 - Купил себе, другу и… бабушке!" +
             "\n 8 - Пирожки на всю компанию!" +
-            "\n 9 - Пересчет временного интервала");
+            "\n 9 - Пересчет временного интервала" +
+            "\n 10 - Цифра на последнем месте");
         int userСhoice = Getint(nameof(userСhoice));
         if (userСhoice == 1)
         {
@@ -58,7 +60,11 @@ public class MainClass
         {
             RecalculatingTimeInterval();
         }
-        else if (userСhoice >= 10)
+        else if (userСhoice == 10)
+        {
+            NumberIsInLastPlace();
+        }
+        else if (userСhoice >= 11)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Несуществующий пункт");
@@ -66,7 +72,7 @@ public class MainClass
         Console.ResetColor();
         Console.WriteLine();
     }
-    
+
     static int Getint(string name)
     {
         bool check;
@@ -171,6 +177,19 @@ public class MainClass
         int hour = minut / 60;
         int minut2 = minut % 60;
         Console.WriteLine($"{minut} мин - это {hour} час {minut2} минут.");
+    }
+    /*Цифра на последнем месте
+    Дано натуральное число.Выведи его последнюю цифру.
+    Формат входных данных:
+    Одно натуральное число n, не превышающее 10000.
+    Формат выходных данных:
+    Одна цифра — последняя цифра числа n*/
+    static void NumberIsInLastPlace()
+    {
+        int n = Getint(nameof(n));
+
+        int sum = n % 10;
+        Console.WriteLine($"{sum}");
     }
 }
 

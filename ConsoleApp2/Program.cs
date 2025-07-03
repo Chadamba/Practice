@@ -87,12 +87,12 @@ internal class Program
             {
                 Сalculator();
             }
-            else if (userСhoice == 0)
+            else if (userСhoice == 16)
             {
                 Сalculator();
             }
 
-            else if (userСhoice >= 16)
+            else if (userСhoice >= 17)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Несуществующий пункт");
