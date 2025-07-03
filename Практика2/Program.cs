@@ -22,7 +22,9 @@ public class MainClass
             "\n 7 - Купил себе, другу и… бабушке!" +
             "\n 8 - Пирожки на всю компанию!" +
             "\n 9 - Пересчет временного интервала" +
-            "\n 10 - Цифра на последнем месте");
+            "\n 10 - Цифра на последнем месте" +
+            "\n 11 - Найди вторую справа!" +
+            "\n 12 - Сумма цифр");
         int userСhoice = Getint(nameof(userСhoice));
         if (userСhoice == 1)
         {
@@ -64,7 +66,15 @@ public class MainClass
         {
             NumberIsInLastPlace();
         }
-        else if (userСhoice >= 11)
+        else if (userСhoice == 11)
+        {
+            FindSecondOneOnRight();
+        }
+        else if (userСhoice == 12)
+        {
+            SumOfDigits();
+        }
+        else if (userСhoice >= 13)
         {
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Несуществующий пункт");
@@ -189,6 +199,35 @@ public class MainClass
         int n = Getint(nameof(n));
 
         int sum = n % 10;
+        Console.WriteLine($"{sum}");
+    }
+    /*Найди вторую справа!
+    Дано неотрицательное целое число.Найди число десятков — то есть вторую цифру справа.
+    Формат входных данных:
+    Одно натуральное число n, не превышающее 10000.
+    Формат выходных данных:
+    Одна цифра — количество десятков в числе  n.*/
+    static void FindSecondOneOnRight()
+    {
+        int n = Getint(nameof(n));
+        int sum = n / 10;
+        int sum2 = sum % 10;
+        Console.WriteLine($"{sum2}");
+    }
+    /* Сумма цифр
+ Дано трехзначное число.Найди сумму его цифр.
+ Формат входных данных:
+ Одно трехзначное число.
+ Формат выходных данных:
+ Одно целое число — сумма цифр введенного числа*/
+    static void SumOfDigits()
+    {
+        int number = Getint(nameof(number));
+        int number1 = number % 10;
+        int number2 = number % 100;
+        int number22 = number2 / 10;
+        int number3 = number / 100;
+        int sum = number1 + number22 + number3;
         Console.WriteLine($"{sum}");
     }
 }
