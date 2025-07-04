@@ -23,7 +23,8 @@
                 "\n 12 - Сумма цифр" +
                 "\n 13 - Перевернутое число" +
                 "\n 14 - Площадь круга" +
-                "\n 15 - Площадь треугольника");
+                "\n 15 - Площадь треугольника" +
+                "\n 16 - Программа, которая определяет, какой температуре по шкале Цельсия соответствует указанное значение по шкале Фаренгейта.");
             int userСhoice = GetInt(nameof(userСhoice));
             if (userСhoice == 1)
             {
@@ -85,7 +86,11 @@
             {
                 AreaOfTriangle();
             }
-            else if (userСhoice >= 16)
+            else if (userСhoice == 16)
+            {
+                CelsiusAndFahrenheitTemperatures();
+            }
+            else if (userСhoice >= 17)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Несуществующий пункт");
@@ -324,8 +329,8 @@
         Console.WriteLine("Введите значение радиуса: ");
         double radius = GetDouble(nameof(radius));
         double areaOfCircle = Math.PI * (radius * radius);
-        
-        Console.WriteLine($"Площадь круга {Math.Round(areaOfCircle,2)} с значение радиуса {radius}");
+
+        Console.WriteLine($"Площадь круга {Math.Round(areaOfCircle, 2)} с значение радиуса {radius}");
     }
 
     /*Площадь треугольника
@@ -343,5 +348,29 @@
         double areaOfTriangle = 0.5 * firstTriangleСatheter * secondTriangleСatheter;
         Console.WriteLine($"Площадь треуголька = {areaOfTriangle}");
     }
+
+    /*По Фаренгейту
+Напиши программу, которая определяет, какой температуре по шкале Цельсия соответствует указанное значение по шкале Фаренгейта.
+Используй формулу для перевода: C = 5 / 9 
+⋅ (F - 32), где F — температура по Фаренгейту, а C — температура по Цельсию.
+Формат входных данных:
+Одно вещественное число F — температура в градусах по шкале Фаренгейта.
+Формат выходных данных:
+Одно число — температура в градусах Цельсия.*/
+    static void CelsiusAndFahrenheitTemperatures()
+    {
+        Console.WriteLine("Введите значение Фаренгейта = ");
+        double fahrenheit = GetDouble(nameof(fahrenheit));
+        double celsius = 5.0/9.0 * (fahrenheit - 32);
+        Console.WriteLine($"Температура в градусах Цельсия {celsius}");
+    }
+
+    /*Среднее арифметическое
+Даны два числа.Найди их среднее арифметическое.
+Формат входных данных:
+Два целых положительных числа a и b, каждое из которых не превышает 10000.
+Формат выходных данных:
+Одно число — среднее арифметическое чисел a и b.*/
+
 }
 
