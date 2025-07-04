@@ -1,4 +1,6 @@
-﻿public class MainClass
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+public class MainClass
 {
     static void Main()
     {
@@ -24,7 +26,9 @@
                 "\n 13 - Перевернутое число" +
                 "\n 14 - Площадь круга" +
                 "\n 15 - Площадь треугольника" +
-                "\n 16 - Программа, которая определяет, какой температуре по шкале Цельсия соответствует указанное значение по шкале Фаренгейта.");
+                "\n 16 - Программа, которая определяет, какой температуре по шкале Цельсия соответствует указанное значение по шкале Фаренгейта." +
+                "\n 17 - Среднее арифметическое" +
+                "\n 18 - Дробная часть");
             int userСhoice = GetInt(nameof(userСhoice));
             if (userСhoice == 1)
             {
@@ -90,7 +94,15 @@
             {
                 CelsiusAndFahrenheitTemperatures();
             }
-            else if (userСhoice >= 17)
+            else if (userСhoice == 17)
+            {
+                ArithmeticMean();
+            }
+            else if (userСhoice == 18)
+            {
+                FractionalPart();
+            }
+            else if (userСhoice >= 19)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Несуществующий пункт");
@@ -361,7 +373,7 @@
     {
         Console.WriteLine("Введите значение Фаренгейта = ");
         double fahrenheit = GetDouble(nameof(fahrenheit));
-        double celsius = 5.0/9.0 * (fahrenheit - 32);
+        double celsius = 5.0 / 9.0 * (fahrenheit - 32);
         Console.WriteLine($"Температура в градусах Цельсия {celsius}");
     }
 
@@ -371,6 +383,29 @@
 Два целых положительных числа a и b, каждое из которых не превышает 10000.
 Формат выходных данных:
 Одно число — среднее арифметическое чисел a и b.*/
+    static void ArithmeticMean()
+    {
+        Console.Write("Введите первое целое число = ");
+        double firstPositiveInteger = GetDouble(nameof(firstPositiveInteger));
+        Console.Write("Введите второе целое число = ");
+        double secondPositiveIntenger = GetDouble(nameof(secondPositiveIntenger));
+        double arithmeticMean = (firstPositiveInteger + secondPositiveIntenger) / 2.0;
+        Console.Write($"Среднее арифметическое двух чисел = {arithmeticMean}");
+    }
+    /*Дробная часть
+Дано положительное вещественное число x.
+    Выведи его дробную часть.
+Формат входных данных:
+Одно положительное вещественное число x
+Формат выходных данных:
+Одно число — дробная часть числа x*/
+    static void FractionalPart()
+    {
+        Console.Write("Введите дробнеое число = ");
+        double positiveRealNumber = GetDouble(nameof(positiveRealNumber));
+        int anInteger = (int)positiveRealNumber;
+        Console.WriteLine($"Дробная часть = {positiveRealNumber - anInteger}");
+    }
 
 }
 
