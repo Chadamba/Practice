@@ -2,84 +2,97 @@
 {
     static void Main()
     {
-        Console.ForegroundColor = ConsoleColor.Yellow;
-        Console.WriteLine("МЕНЮ" +
-            "\n" +
-            "\n Выберите пункт" +
-            "\n" +
-            "\n 1 - Квадрат числа" +
-            "\n 2 - Расстояние в километрах" +
-            "\n 3 - Произведение трёх чисел" +
-            "\n 4 - Как поделить яблоки и не поссориться - 1" +
-            "\n 5 - Как поделить яблоки и не поссориться - 2" +
-            "\n 6 - Три последовательных числа" +
-            "\n 7 - Купил себе, другу и… бабушке!" +
-            "\n 8 - Пирожки на всю компанию!" +
-            "\n 9 - Пересчет временного интервала" +
-            "\n 10 - Цифра на последнем месте" +
-            "\n 11 - Найди вторую справа!" +
-            "\n 12 - Сумма цифр" +
-            "\n 13 - Перевернутое число");
-        int userСhoice = GetInt(nameof(userСhoice));
-        if (userСhoice == 1)
+        while (true)
         {
-            SquareOfNumber();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("МЕНЮ" +
+                "\n" +
+                "\n Выберите пункт" +
+                "\n" +
+                "\n 1 - Квадрат числа" +
+                "\n 2 - Расстояние в километрах" +
+                "\n 3 - Произведение трёх чисел" +
+                "\n 4 - Как поделить яблоки и не поссориться - 1" +
+                "\n 5 - Как поделить яблоки и не поссориться - 2" +
+                "\n 6 - Три последовательных числа" +
+                "\n 7 - Купил себе, другу и… бабушке!" +
+                "\n 8 - Пирожки на всю компанию!" +
+                "\n 9 - Пересчет временного интервала" +
+                "\n 10 - Цифра на последнем месте" +
+                "\n 11 - Найди вторую справа!" +
+                "\n 12 - Сумма цифр" +
+                "\n 13 - Перевернутое число" +
+                "\n 14 - Площадь круга" +
+                "\n 15 - Площадь треугольника");
+            int userСhoice = GetInt(nameof(userСhoice));
+            if (userСhoice == 1)
+            {
+                SquareOfNumber();
+            }
+            else if (userСhoice == 2)
+            {
+                DistanceInKilometers();
+            }
+            else if (userСhoice == 3)
+            {
+                ProductOfThreeNumbers();
+            }
+            else if (userСhoice == 4)
+            {
+                DivideApples();
+            }
+            else if (userСhoice == 5)
+            {
+                DivideApples2();
+            }
+            else if (userСhoice == 6)
+            {
+                ThreeConsecutiveNumbers();
+            }
+            else if (userСhoice == 7)
+            {
+                TotalCost();
+            }
+            else if (userСhoice == 8)
+            {
+                PiesForWholeCompany();
+            }
+            else if (userСhoice == 9)
+            {
+                RecalculatingTimeInterval();
+            }
+            else if (userСhoice == 10)
+            {
+                NumberIsInLastPlace();
+            }
+            else if (userСhoice == 11)
+            {
+                FindSecondOneOnRight();
+            }
+            else if (userСhoice == 12)
+            {
+                SumOfDigits();
+            }
+            else if (userСhoice == 13)
+            {
+                InvertedNumber();
+            }
+            else if (userСhoice == 14)
+            {
+                AreaOfCircle();
+            }
+            else if (userСhoice == 15)
+            {
+                AreaOfTriangle();
+            }
+            else if (userСhoice >= 16)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Несуществующий пункт");
+            }
+            Console.ResetColor();
+            Console.WriteLine();
         }
-        else if (userСhoice == 2)
-        {
-            DistanceInKilometers();
-        }
-        else if (userСhoice == 3)
-        {
-            ProductOfThreeNumbers();
-        }
-        else if (userСhoice == 4)
-        {
-            DivideApples();
-        }
-        else if (userСhoice == 5)
-        {
-            DivideApples2();
-        }
-        else if (userСhoice == 6)
-        {
-            ThreeConsecutiveNumbers();
-        }
-        else if (userСhoice == 7)
-        {
-            TotalCost();
-        }
-        else if (userСhoice == 8)
-        {
-            PiesForWholeCompany();
-        }
-        else if (userСhoice == 9)
-        {
-            RecalculatingTimeInterval();
-        }
-        else if (userСhoice == 10)
-        {
-            NumberIsInLastPlace();
-        }
-        else if (userСhoice == 11)
-        {
-            FindSecondOneOnRight();
-        }
-        else if (userСhoice == 12)
-        {
-            SumOfDigits();
-        }
-        else if (userСhoice == 13)
-        {
-            InvertedNumber();
-        }
-        else if (userСhoice >= 14)
-        {
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Несуществующий пункт");
-        }
-        Console.ResetColor();
-        Console.WriteLine();
     }
 
     static int GetInt(string name)
@@ -89,6 +102,19 @@
         do
         {
             check = int.TryParse(Console.ReadLine(), out number);
+
+            if (!check) Console.WriteLine("Вы ввели неправильное значение. Введите значение " + name + ".");
+        }
+        while (!check);
+        return number;
+    }
+    static double GetDouble(string name)
+    {
+        bool check;
+        double number;
+        do
+        {
+            check = double.TryParse(Console.ReadLine(), out number);
 
             if (!check) Console.WriteLine("Вы ввели неправильное значение. Введите значение " + name + ".");
         }
@@ -211,7 +237,7 @@
     {
         int naturalNumber = GetInt(nameof(naturalNumber));
 
-        if(naturalNumber > 10_000)
+        if (naturalNumber > 10_000)
         {
             Console.WriteLine("Неподходящее число, надо число меньше 10000.");
             return;
@@ -252,7 +278,7 @@
     {
         int number = GetInt(nameof(number));
 
-        if(number >= 100 && number < 1000)
+        if (number >= 100 && number < 1000)
         {
             Console.WriteLine("Неподходящее число, надо число меньше 1000 или больше 100.");
             return;
@@ -281,6 +307,41 @@
         int number22 = number2 / 10;
         int number3 = number / 100;
         Console.WriteLine($"{number1}" + $"{number22}" + $"{number3}");
+    }
+
+    /* Площадь круга
+ Найди площадь круга заданного радиуса r.
+ Для расчёта использовать значение числа π
+ π = 3.14.
+ Формула для вычисления площади круга:  
+ S=π⋅R^2
+ Формат входных данных:
+ Одно положительное вещественное число r — радиус круга, не превышающее 1000. 
+ Формат выходных данных:
+ Одно положительное вещественное число — площадь круга указанного радиуса​​​​.*/
+    static void AreaOfCircle()
+    {
+        Console.WriteLine("Введите значение радиуса: ");
+        double radius = GetDouble(nameof(radius));
+        double areaOfCircle = Math.PI * (radius * radius);
+        
+        Console.WriteLine($"Площадь круга {Math.Round(areaOfCircle,2)} с значение радиуса {radius}");
+    }
+
+    /*Площадь треугольника
+Напиши программу, которая считывает длины двух катетов в прямоугольном треугольнике и вычисляет его площадь.
+Формат входных данных:
+Два вещественных числа – a и b, длины катетов.Каждое число с новой строки.
+Формат выходных данных:
+Одно число – площадь треугольника.*/
+    static void AreaOfTriangle()
+    {
+        Console.WriteLine("Введите значение первого катета = ");
+        double firstTriangleСatheter = GetDouble(nameof(firstTriangleСatheter));
+        Console.WriteLine("Введите значение второго катета = ");
+        double secondTriangleСatheter = GetDouble(nameof(secondTriangleСatheter));
+        double areaOfTriangle = 0.5 * firstTriangleСatheter * secondTriangleСatheter;
+        Console.WriteLine($"Площадь треуголька = {areaOfTriangle}");
     }
 }
 
