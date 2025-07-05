@@ -28,7 +28,9 @@ public class MainClass
                 "\n 15 - Площадь треугольника" +
                 "\n 16 - Программа, которая определяет, какой температуре по шкале Цельсия соответствует указанное значение по шкале Фаренгейта." +
                 "\n 17 - Среднее арифметическое" +
-                "\n 18 - Дробная часть");
+                "\n 18 - Дробная часть" +
+                "\n 19 - Макси-цифра" +
+                "\n 20 - Три числа");
             int userСhoice = GetInt(nameof(userСhoice));
             if (userСhoice == 1)
             {
@@ -102,7 +104,16 @@ public class MainClass
             {
                 FractionalPart();
             }
-            else if (userСhoice >= 19)
+            else if (userСhoice == 19)
+            {
+                MaxNumber();
+            }
+            else if (userСhoice == 20)
+            {
+                SumAndProductOfThreeIntegers();
+            }
+
+            else if (userСhoice >= 21)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Несуществующий пункт");
@@ -406,6 +417,56 @@ public class MainClass
         int anInteger = (int)positiveRealNumber;
         Console.WriteLine($"Дробная часть = {positiveRealNumber - anInteger}");
     }
+    /*Макси-цифра
+Дано целое трехзначное число.Необходимо найти максимальную цифру этого числа.
+Формат входных данных:
+Одно целое трехзначное число.
+Формат выходных данных:
+Одна цифра - максимальная цифра в составе введенного трехзначного числа.*/
+    static void MaxNumber()
+    {
+        Console.WriteLine($"Введите трехзначное число от -999 до 999");
+        int number = Math.Abs(GetInt(nameof(number)));
+        int firstNumber = number % 10;
+        Console.WriteLine($"Число правого края = {firstNumber}");
+        int secondNumber = (number / 10) % 10;
+        Console.WriteLine($"Число по середине = {secondNumber}");
+        int thirtNumber = number / 100;
+        Console.WriteLine($"Число с левого края = {thirtNumber}");
+        /*
+        if (firstNumber > secondNumber && firstNumber > thirtNumber)
+        {
+            Console.WriteLine($"MAX = {firstNumber}");
+        }
+        if (secondNumber > firstNumber && secondNumber > thirtNumber)
+        {
+            Console.WriteLine($"MAX = {secondNumber}");
+        }
+        if (thirtNumber > secondNumber && thirtNumber > firstNumber)
+        {
+            Console.WriteLine($"MAX = {thirtNumber}");
+        }*/
+        int max = Math.Max(firstNumber, Math.Max(secondNumber, thirtNumber));
+        Console.WriteLine($"Мах = {max}");
+    }
+
+    /*Три числа
+Напиши программу, которая вычисляет сумму и произведение трёх целых чисел, введённых с клавиатуры.
+Формат входных данных:
+Три целых числа, каждое из которых не превышает по модулю 1000, каждое с новой строки.
+Формат выходных данных:
+Два целых числа на одной строке через пробел - сумма и произведение исходных чисел.*/
+    static void SumAndProductOfThreeIntegers()
+    {
+        Console.WriteLine("Введите три целых числа: ");
+        int number = GetInt(nameof(number));
+        int number1 = GetInt(nameof(number1));
+        int number2 = GetInt(nameof(number2));
+        int sum = number + number2 + number2;
+        int multiplication = number * number1 * number2;
+        Console.WriteLine($"{sum} {multiplication}");
+    }
+
 
 }
 
