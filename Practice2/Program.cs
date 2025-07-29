@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics.Metrics;
+using System.Xml.Linq;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 
 public class MainClass
@@ -32,7 +34,8 @@ public class MainClass
                 "\n 18 - Дробная часть" +
                 "\n 19 - Макси-цифра" +
                 "\n 20 - Три числа" +
-                "\n 21 - Подсчёт чётных чисел");
+                "\n 21 - Подсчёт чётных чисел" +
+                "\n 22 - Поиск минимального положительного элемента");
             Console.ResetColor();
             int userСhoice = GetInt(nameof(userСhoice));
             if (userСhoice == 1)
@@ -119,8 +122,11 @@ public class MainClass
             {
                 CountEvenNumbers();
             }
-
-            else if (userСhoice >= 22)
+            else if (userСhoice == 22)
+            {
+                FindMinimumPositiveElement();
+            }
+            else if (userСhoice >= 23)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Несуществующий пункт");
@@ -494,7 +500,33 @@ public class MainClass
                 counter++;
             }
         }
+
         Console.WriteLine($"Колличество четных чисел = {counter}");
+    }
+
+    static void FindMinimumPositiveElement()
+    {
+        Console.WriteLine("Введите число. " +
+            "\n" +
+            "Данное введеное число будет длиной массива");
+
+        int userInput = GetInt(nameof(userInput));
+        int[] lengthArray = new int[userInput];
+        Console.WriteLine($"Длинна массива {userInput}.");
+        int minElement = 0;
+
+        for (int i = 0; i < lengthArray.Length; i++)
+        {
+            Console.WriteLine($"Введите число {i + 1}: ");
+            lengthArray[i] = GetInt(nameof(lengthArray));
+
+            if (lengthArray[i] > 0 && (minElement == 0 || lengthArray[i] < minElement))
+            {
+                minElement = lengthArray[i];
+            }
+        }
+
+        Console.WriteLine($"Минимальный положительный элемент = {minElement}");
     }
 }
 
