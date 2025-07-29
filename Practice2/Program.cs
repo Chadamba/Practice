@@ -1,4 +1,5 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using System;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 public class MainClass
 {
@@ -30,7 +31,9 @@ public class MainClass
                 "\n 17 - Среднее арифметическое" +
                 "\n 18 - Дробная часть" +
                 "\n 19 - Макси-цифра" +
-                "\n 20 - Три числа");
+                "\n 20 - Три числа" +
+                "\n 21 - Подсчёт чётных чисел");
+            Console.ResetColor();
             int userСhoice = GetInt(nameof(userСhoice));
             if (userСhoice == 1)
             {
@@ -112,8 +115,12 @@ public class MainClass
             {
                 SumAndProductOfThreeIntegers();
             }
+            else if (userСhoice == 21)
+            {
+                CountEvenNumbers();
+            }
 
-            else if (userСhoice >= 21)
+            else if (userСhoice >= 22)
             {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Несуществующий пункт");
@@ -467,6 +474,27 @@ public class MainClass
         Console.WriteLine($"{sum} {multiplication}");
     }
 
+    static void CountEvenNumbers()
+    {
+        Console.WriteLine("Введите число. " +
+            "\n" +
+            "Данное введеное число будет длиной массива");
 
+        int userInput = GetInt(nameof(userInput));
+        int[] lengthArray = new int[userInput];
+        int counter = 0;
+        Console.WriteLine($"Длинна массива {userInput}.");
+
+        for (int i = 0; i < lengthArray.Length; i++)
+        {
+            Console.WriteLine($"Введите число {i + 1}: ");
+            lengthArray[i] = GetInt(nameof(lengthArray));
+            if (lengthArray[i] % 2 == 0)
+            {
+                counter++;
+            }
+        }
+        Console.WriteLine($"Колличество четных чисел = {counter}");
+    }
 }
 
